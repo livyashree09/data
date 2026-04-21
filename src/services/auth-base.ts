@@ -4,11 +4,13 @@ export abstract  class AuthBase{
         password:string,
         memorableword?:string
     ): Promise<{message:string}>;
+    
     abstract register(
         email:string,
         password:string,
         memorableword?:string
     ): Promise<{message:string}>;
+    
     abstract forgotPassword(
     email: string
   ): Promise<{ message: string }>;

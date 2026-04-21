@@ -1,21 +1,15 @@
-
-import { registerSchema } from "../auth/validators/auth-schema";
 import { AuthBase } from "../services/auth-base";
-import { AuthService } from "../services/auth-service"; 
+import { LoginInput } from "../types/user-types";
 
 export class RegisterUseCase {
   constructor(private service: AuthBase) {}
 
-  execute(data: any) {
-
-   
-    const parsed = registerSchema.parse(data);
-
-    
+  async execute(data: LoginInput) {
     return this.service.register(
-      parsed.email,
-      parsed.password,
-      parsed.memorableWord
+      data.email,
+      data.password,
+      data.memorableWord
     );
   }
 }
+

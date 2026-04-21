@@ -17,4 +17,4 @@ export const ResetPasswordSchema = z.object({
     newPassword:z.string().min(4),
     confirmPassword:z.string().min(4)
 
-})
+});

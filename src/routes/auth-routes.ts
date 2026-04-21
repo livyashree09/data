@@ -1,22 +1,14 @@
 import express from "express";
-import { UserRepository } from "../repository/user-repository";
-import { AuthService } from "../services/auth-service";
-import { ResetPasswordUseCase } from "../usecase/resetpassword-usecase";
-import { RegisterUseCase } from "../usecase/register-usecase";
-import { LoginUseCase } from "../usecase/login-usecase";
 import { validate } from "../middleware/validate";
 import { loginSchema, registerSchema,ResetPasswordSchema } from "../auth/validators/auth-schema";
 import { logger } from "../middleware/logger";
+import { loginUC, registerUC, resetUC } from "../Container/container";
 
 
 
 const router = express.Router();
 const users: any[] = [];
-const repo = new UserRepository();
-const service = new AuthService(repo);
-const loginUC = new LoginUseCase(service);
-const registerUC = new RegisterUseCase(service);
-const resetUC = new ResetPasswordUseCase(service);
+
 
 
 router.use(logger);
