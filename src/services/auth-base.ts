@@ -3,23 +3,23 @@ export abstract  class AuthBase{
         email:string,
         password:string,
         memorableword?:string
-    ): Promise<{message:string}>;
+    ): Promise<{message:string,token?: string }>;
     
     abstract register(
         email:string,
         password:string,
         memorableword?:string
-    ): Promise<{message:string}>;
+    ): Promise<{message:string,token?: string }>;
     
     abstract forgotPassword(
     email: string
-  ): Promise<{ message: string }>;
+  ): Promise<{ message: string,token?: string  }>;
 
     abstract resetpassword(
         email:string,
         newpassword:string,
         confirmpassword:string
-    ):Promise<{message:string}>;
+    ):Promise<{message:string,token?: string }>;
 }
 
 
